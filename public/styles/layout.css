@@ -22,6 +22,12 @@ body {
   padding-top: 120px;
 }
 
+main {
+  width: 90%;
+  margin: 0 auto; /* Center align the main element */
+  background-color: inherit; /* Inherit background color from the body */
+}
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */

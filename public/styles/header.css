@@ -1,5 +1,6 @@
 header {
   width: 100%;
+  height: 400px;
   background-color: #ffbb47; /* Different color from nav and body */
   background-image: url('https://www.transparenttextures.com/patterns/beige-paper.png');
   display: flex;
