@@ -8,6 +8,10 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;;
 }
 
 nav span {
@@ -26,4 +30,8 @@ nav span {
 .write-new-tweet-container i {
   font-size: 1.5em;
   margin-top: 0.5em;
+}
+
+body {
+  padding-top: 120px;
 }
