@@ -23,11 +23,11 @@
   padding: 10px;
   margin-bottom: 10px;
   border: none;
-  border-bottom: 5px solid #CCCCCC;
+  border-bottom: 5px solid #545149;
   font-family: inherit;
   resize: none;
   background-color: transparent;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .new-tweet div {

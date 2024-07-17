@@ -12,10 +12,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:wght@300;600&display=swap" rel="stylesheet">
 
     <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css">
-    <link rel="stylesheet" href="/styles/header.css">
-    <link rel="stylesheet" href="/styles/new-tweet.css">
+    <link rel="stylesheet" href="styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/new-tweet.css">
+    <link rel="stylesheet" href="styles/tweet.css">
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -43,7 +44,7 @@
       </div>
       <br>
       <div>
-        <h2 class="name"><b>Your </b>Name</h2>
+        <h2 class="name"><b>Hey</b> ItsMe</h2>
       </div>
     </header>
 
@@ -59,6 +60,26 @@
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
+      </section>
+
+      <!-- New section for tweets container -->
+      <section class="tweets-container">
+        <article class="tweet">
+          <header>
+            <img src="/images/profile-hex.png" alt="User Avatar" class="avatar">
+            <h3 class="username">User Name</h3>
+            <p class="handle">@userhandle</p>
+          </header>
+          <p class="tweet-content">This is a dummy tweet content for visualization. This is a dummy tweet content for visualization. This is a dummy tweet content for visualization. This is a dummy tweet content for visualization.</p>
+          <footer>
+            <p class="timestamp">10 minutes ago</p>
+            <div class="tweet-actions">
+              <i class="fas fa-flag"></i>
+              <i class="fas fa-retweet"></i>
+              <i class="fas fa-heart"></i>
+            </div>
+          </footer>
+        </article>
       </section>
     </main>
     <!--jQuery library added here-->
