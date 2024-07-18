@@ -4,77 +4,89 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// Test / driver code (temporary). Eventually will get this from the server.
-
-
-// Define createTweetElement function
-const createTweetElement = function(tweet) {
-  const { user, content, created_at } = tweet;
-  
-  // Create the tweet
-  const $tweet = $(`
-    <article class="tweet">
-      <header>
-        <img src="${user.avatars}" alt="User Avatar" class="avatar">
-        <h2 class="username">${user.name}</h2>
-        <span class="handle">${user.handle}</span>
-      </header>
-      <div class="tweet-content">
-        ${content.text}
-      </div>
-      <footer>
-        <span class="timestamp">${new Date(created_at).toLocaleString()}</span>
-        <div class="tweet-actions">
-          <i class="fas fa-flag"></i>
-          <i class="fas fa-retweet"></i>
-          <i class="fas fa-heart"></i>
-        </div>
-      </footer>
-    </article>
-  `);
-
-  return $tweet;
-};
-
-// Define renderTweets function
-const renderTweets = function(tweets) {
-  const $tweetsContainer = $('.tweets-container');
-  $tweetsContainer.empty(); // Clear the container before appending new tweets
-
-  // Loop through each tweet and append it to the tweets container
-  for (const tweet of tweets) {
-    const $tweet = createTweetElement(tweet);
-    $tweetsContainer.append($tweet);
-  }
-};
-
-// Test data
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
-
-// Call renderTweets to render the tweets on page load
 $(document).ready(function() {
-  renderTweets(data);
+  // Event listener for form submission
+  $('.new-tweet form').on('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Serialize the form data
+    const tweetData = $(this).serialize();
+    console.log("Tweet being sent to server: ", tweetData);
+
+    // Send the form data using AJAX
+    $.ajax({
+      url: '/tweets', // Endpoint to send the form data
+      method: 'POST',
+      data: tweetData,
+      success: function(response) {
+        console.log("Server response: ", response)
+        // On successful response, fetch the new tweets and render them
+        loadTweets();
+      },
+      error: function(err) {
+        console.error('Error posting tweet:', err);
+      }
+    });
+    // .then(loadTweets())
+    // .catch(console.log);
+  });
+
+  // Function to create a tweet element
+  const createTweetElement = function(tweet) {
+    const { user, content, created_at } = tweet;
+
+    const $tweet = $(`
+      <article class="tweet">
+        <header>
+          <img src="${user.avatars}" alt="User Avatar" class="avatar">
+          <h2 class="username">${user.name}</h2>
+          <span class="handle">${user.handle}</span>
+        </header>
+        <div class="tweet-content">
+          ${content.text}
+        </div>
+        <footer>
+          <span class="timestamp">${new Date(created_at).toLocaleString()}</span>
+          <div class="tweet-actions">
+            <i class="fas fa-flag"></i>
+            <i class="fas fa-retweet"></i>
+            <i class="fas fa-heart"></i>
+          </div>
+        </footer>
+      </article>
+    `);
+
+    return $tweet;
+  };
+
+  // Function to render tweets
+  const renderTweets = function(tweets) {
+    const $tweetsContainer = $('.tweets-container');
+    $tweetsContainer.empty(); // Clear the container before appending new tweets
+
+    // Loop through each tweet and append it to the tweets container
+    for (const tweet of tweets) {
+      const $tweet = createTweetElement(tweet);
+      $tweetsContainer.prepend($tweet);
+    }
+  };
+
+  // Function to load tweets from the server
+  const loadTweets = function() {
+    $.ajax({
+      url: '/tweets',
+      method: 'GET',
+      success: function(tweets) {
+        renderTweets(tweets);
+      },
+      error: function(err) {
+        console.error('Error loading tweets:', err);
+      }
+    });
+    // .then(renderTweets(tweets))
+    // .catch(console.log)
+  };
+
+  // Initial load of tweets
+  loadTweets();
 });
