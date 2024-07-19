@@ -5,18 +5,46 @@
  */
 
 $(document).ready(function() {
+  // Function to validate tweet text
+  const isTweetValid = function(tweetText) {
+    const trimmedText = tweetText.trim();
+    if (trimmedText.length === 0) {
+      alert("Tweet cannot be empty.");
+      return false; // Invalid tweet
+    }
+    if (trimmedText.length > 140) {
+      alert("Please limit your tweet to 140 characters.");
+      return false; // Invalid tweet
+    }
+    return true; // Valid tweet
+  };
+
   // Event listener for form submission
   $('.new-tweet form').on('submit', function(event) {
     event.preventDefault(); // Prevent the default form submission
 
-    // Serialize the form data
+    // Get the tweet text
     const $textarea = $(this).find('textarea');
     const tweetText = $textarea.val();
-    const tweetLength = tweetText.length;
+    // const tweetLength = tweetText.length;
 
     // Validation check
-    if (tweetLength === 0 || tweetLength > 140) {
-      alert("Tweet should be between 1 and 140 characters.");
+    // if (tweetLength === 0 || tweetLength > 140) {
+    //   alert("Tweet should be between 1 and 140 characters.");
+    //   return;
+    // }
+
+    // if (tweetLength === 0) {
+    //   alert("Tweet cannot be empty.");
+    //   return; // Stop the form from submitting
+    // }
+
+    // if (tweetLength > 140) {
+    //   alert("Please limit your tweet to 140 characters.");
+    //   return; // Stop the form from submitting
+    // }
+
+    if(!isTweetValid(tweetText)) {
       return;
     }
 
@@ -33,6 +61,8 @@ $(document).ready(function() {
         console.log("Server response: ", response)
         // On successful response, fetch the new tweets and render them
         loadTweets();
+        $textarea.val(''); // Clear the textarea after successful submission
+        $textarea.trigger('input'); // Trigger input event to reset the counter
       },
       error: function(err) {
         console.error('Error posting tweet:', err);
