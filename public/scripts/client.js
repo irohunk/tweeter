@@ -27,13 +27,13 @@ $(document).ready(function() {
         console.error('Error posting tweet:', err);
       }
     });
-    // .then(loadTweets())
-    // .catch(console.log);
   });
 
   // Function to create a tweet element
   const createTweetElement = function(tweet) {
     const { user, content, created_at } = tweet;
+
+    const formattedTime = timeago.format(new Date(created_at));
 
     const $tweet = $(`
       <article class="tweet">
@@ -46,7 +46,7 @@ $(document).ready(function() {
           ${content.text}
         </div>
         <footer>
-          <span class="timestamp">${new Date(created_at).toLocaleString()}</span>
+          <span class="timestamp">${formattedTime}</span>
           <div class="tweet-actions">
             <i class="fas fa-flag"></i>
             <i class="fas fa-retweet"></i>
@@ -83,8 +83,6 @@ $(document).ready(function() {
         console.error('Error loading tweets:', err);
       }
     });
-    // .then(renderTweets(tweets))
-    // .catch(console.log)
   };
 
   // Initial load of tweets
