@@ -10,6 +10,17 @@ $(document).ready(function() {
     event.preventDefault(); // Prevent the default form submission
 
     // Serialize the form data
+    const $textarea = $(this).find('textarea');
+    const tweetText = $textarea.val();
+    const tweetLength = tweetText.length;
+
+    // Validation check
+    if (tweetLength === 0 || tweetLength > 140) {
+      alert("Tweet should be between 1 and 140 characters.");
+      return;
+    }
+
+    // Serialize the form data if validation passes
     const tweetData = $(this).serialize();
     console.log("Tweet being sent to server: ", tweetData);
 
