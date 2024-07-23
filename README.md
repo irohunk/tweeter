@@ -19,9 +19,10 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Screenshots
 ### Desktop Mode
-
+https://github.com/irohunk/tweeter/blob/master/docs/DesktopMode.png?raw=true
 
 ### Tablet Mode
-
+https://github.com/irohunk/tweeter/blob/master/docs/TabletMode.png?raw=true
 
 ### Mobile Mode
+https://github.com/irohunk/tweeter/blob/master/docs/MobileMode.png?raw=true
