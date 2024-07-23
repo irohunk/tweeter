@@ -39,7 +39,7 @@ main {
 /* Tablet styles */
 @media (min-width: 768px) and (max-width: 1023px) {
   .page {
-    width: 80%;
+    width: 90%;
     display: flex;
     margin: 0 auto;
     flex-direction: row;
@@ -59,7 +59,7 @@ main {
 @media (min-width: 1024px) {
   .page {
     display: flex;
-    width: 70%;
+    width: 90%;
     margin: 0 auto;
     flex-direction: row;
   }

@@ -65,15 +65,11 @@
 }
 
 .tweet .tweet-actions i {
-  color: #657786;
+  color: #2e3e75;
   margin-left: 10px;
   cursor: pointer;
 }
 
 .tweet .tweet-actions i:hover {
   color: #1DA1F2;
-}
-
-.tweet .tweet-actions i::selection {
-  color: #4056A1;
 }
