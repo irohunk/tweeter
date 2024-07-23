@@ -41,23 +41,6 @@ $(document).ready(function() {
     // Get the tweet text
     const $textarea = $(this).find('textarea');
     const tweetText = $textarea.val();
-    // const tweetLength = tweetText.length;
-
-    // Validation check
-    // if (tweetLength === 0 || tweetLength > 140) {
-    //   alert("Tweet should be between 1 and 140 characters.");
-    //   return;
-    // }
-
-    // if (tweetLength === 0) {
-    //   alert("Tweet cannot be empty.");
-    //   return; // Stop the form from submitting
-    // }
-
-    // if (tweetLength > 140) {
-    //   alert("Please limit your tweet to 140 characters.");
-    //   return; // Stop the form from submitting
-    // }
 
     if(!isTweetValid(tweetText)) {
       return;

@@ -2,11 +2,14 @@
 <html lang="en">
   <head>
     <!-- Meta Information -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Tweeter - Home Page</title>
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
+    <!-- External Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:wght@300;600&display=swap" rel="stylesheet">
@@ -19,15 +22,12 @@
     <link rel="stylesheet" href="styles/tweet.css">
 
     <!-- External JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+    
     <!-- App JS -->
+    <script src="scripts/composer-char-counter.js"></script>
     <script type="text/javascript" src="/scripts/client.js"></script>
-
-    <!-- Importing Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
   </head>
 
   <body>
@@ -40,56 +40,52 @@
       </div>
     </nav>
 
-    <header>
-      <div class="avatar-container">
-        <img src="/images/profile-hex.png" alt="Avatar" class="avatar">
-      </div>
-      <br>
-      <div>
-        <h2 class="name"><b>Hey</b> ItsMe</h2>
-      </div>
-    </header>
+    <section class="page">
+      <header class="header">
+        <div class="avatar-container">
+          <img src="/images/profile-hex.png" alt="Avatar" class="avatar">
+        </div>
+        <br>
+        <div>
+          <h2 class="name">Hey <span class="notBold">ItsMe</span></h2>
+        </div>
+      </header>
 
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <div class="error-message" style="display: none;"></div>
-        <form action="/tweets" method="POST">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <div>
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>
-
-      <!-- New section for tweets container -->
-      <section class="tweets-container">
-        <!-- <article class="tweet">
-          <header>
-            <img src="/images/profile-hex.png" alt="User Avatar" class="avatar">
-            <h3 class="username">User Name</h3>
-            <p class="handle">@userhandle</p>
-          </header>
-          <p class="tweet-content">This is a dummy tweet content for visualization. This is a dummy tweet content for visualization. This is a dummy tweet content for visualization. This is a dummy tweet content for visualization.</p>
-          <footer>
-            <p class="timestamp">10 minutes ago</p>
-            <div class="tweet-actions">
-              <i class="fas fa-flag"></i>
-              <i class="fas fa-retweet"></i>
-              <i class="fas fa-heart"></i>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="new-tweet">
+          <h2>Compose Tweet</h2>
+          <div class="error-message" style="display: none;"></div>
+          <form action="/tweets" method="POST">
+            <label for="tweet-text">What are you humming about?</label>
+            <textarea name="text" id="tweet-text"></textarea>
+            <div>
+              <button type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
             </div>
-          </footer>
-        </article> -->
-      </section>
-    </main>
-    <!-- Importing Timeago -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!--jQuery library added here-->
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <!--Scripts added here-->
-    <script src="scripts/composer-char-counter.js"></script>
+          </form>
+        </section>
+
+        <!-- New section for tweets container -->
+        <section class="tweets-container">
+          <!-- <article class="tweet">
+            <header>
+              <img src="/images/profile-hex.png" alt="User Avatar" class="avatar">
+              <h3 class="username">User Name</h3>
+              <p class="handle">@userhandle</p>
+            </header>
+            <p class="tweet-content">This is a dummy tweet content for visualization. This is a dummy tweet content for visualization. This is a dummy tweet content for visualization. This is a dummy tweet content for visualization.</p>
+            <footer>
+              <p class="timestamp">10 minutes ago</p>
+              <div class="tweet-actions">
+                <i class="fas fa-flag"></i>
+                <i class="fas fa-retweet"></i>
+                <i class="fas fa-heart"></i>
+              </div>
+            </footer>
+          </article> -->
+        </section>
+      </main>
+    </section>
   </body>
 </html>

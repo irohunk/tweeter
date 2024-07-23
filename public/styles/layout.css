@@ -19,11 +19,56 @@ body {
   background-color: #f4f1ec;
   font-family: 'Source Sans 3', sans-serif;
   font-size: 24px;
-  padding-top: 120px;
 }
 
 main {
   width: 90%;
   margin: 0 auto; /* Center align the main element */
   background-color: inherit; /* Inherit background color from the body */
+}
+
+
+/* Base styles for mobile */
+.page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .page {
+    width: 80%;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  body {
+    padding-top: 120px;
+  }
+
+  .tweets-container {
+    padding: 5%;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .page {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    flex-direction: row;
+  }
+
+  body {
+    padding-top: 120px;
+  }
+
+  .tweets-container {
+    padding: 5%;
+  }
 }
