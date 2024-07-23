@@ -18,8 +18,12 @@ This repository is the starter code for the project: Students will fork and clon
 - Node 5.10.x or above
 
 ## Screenshots
+
+### Desktop Mode
 !["Screenshot of Desktop Mode"](https://github.com/irohunk/tweeter/blob/master/docs/DesktopMode.png?raw=true)
 
+### Tablet Mode
 !["Screenshot of Tablet Mode"](https://github.com/irohunk/tweeter/blob/master/docs/TabletMode.png?raw=true)
 
+### Mobile Mode
 !["Screenshot of Mobile Mode"](https://github.com/irohunk/tweeter/blob/master/docs/MobileMode.png?raw=true)
